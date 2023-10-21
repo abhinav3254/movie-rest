@@ -48,6 +48,9 @@ public class MovieServiceImpl implements MovieService {
     public ResponseEntity<List<Movie>> getMovies() {
         try {
 
+//            wait for few seconds then only data will load
+//            Thread.sleep(2000);
+
             List<Movie> movies = movieRepository.findAll();
 
             return new ResponseEntity<>(movies,HttpStatus.OK);

@@ -86,6 +86,10 @@ public class JwtFilter extends OncePerRequestFilter {
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // 401 Unauthorized
                 response.setContentType("application/json");
                 response.getWriter().write("{\"message\": \"Malformed or invalid token.\"}");
+            } catch (IllegalArgumentException e) {
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // 401 Unauthorized
+                response.setContentType("application/json");
+                response.getWriter().write("{\"message\": \"No Token Found or invalid token.\"}");
             } catch (Exception e) {
                 e.printStackTrace();
             }
