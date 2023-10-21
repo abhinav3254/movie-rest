@@ -2,6 +2,7 @@ package movie.controller.impl;
 
 import movie.controller.UserController;
 import movie.dto.LogInDto;
+import movie.dto.ProfileDTO;
 import movie.model.User;
 import movie.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,10 @@ public class UserControllerImpl implements UserController {
             e.printStackTrace();
         }
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<ProfileDTO> profile() {
+        return userService.profile();
     }
 }
