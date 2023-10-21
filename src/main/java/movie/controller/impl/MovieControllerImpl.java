@@ -30,4 +30,9 @@ public class MovieControllerImpl implements MovieController {
     public ResponseEntity<List<Movie>> getMovies() {
         return movieService.getMovies();
     }
+
+    @Override
+    public ResponseEntity<List<Movie>> getByYear(Integer year) {
+        return movieService.getByYear(year);
+    }
 }

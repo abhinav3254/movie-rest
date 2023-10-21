@@ -60,4 +60,19 @@ public class MovieServiceImpl implements MovieService {
         }
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @Override
+    public ResponseEntity<List<Movie>> getByYear(Integer year) {
+        try {
+
+            List<Movie> movies = movieRepository.findByYear(year);
+
+            return new ResponseEntity<>(movies,HttpStatus.OK);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
 }

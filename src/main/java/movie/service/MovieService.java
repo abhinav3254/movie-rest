@@ -13,4 +13,6 @@ public interface MovieService {
     ResponseEntity<String> addMovie(Movie movie);
 
     ResponseEntity<List<Movie>> getMovies();
+
+    ResponseEntity<List<Movie>> getByYear(Integer year);
 }
