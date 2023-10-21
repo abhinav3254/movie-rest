@@ -1,6 +1,28 @@
-use this one to insert values into database
+use this
 
 ```
+
+
+/* CREATE TABLE */
+CREATE TABLE movie (
+    id int primary key auto_increment,
+    title VARCHAR(255),
+    year DOUBLE,
+    cast VARCHAR(1000),
+    genres VARCHAR(255),
+    href VARCHAR(255),
+    extract VARCHAR(4000),
+    thumbnail VARCHAR(255),
+    thumbnail_width VARCHAR(255),
+    thumbnail_height VARCHAR(255)
+);
+
+drop table movie;
+
+desc movie;
+
+
+
 
 INSERT INTO movie (title, year, cast, genres, href, extract, thumbnail, thumbnail_width, thumbnail_height) VALUES
 ('The Grudge',2020,'["Andrea Riseborough","Demián Bichir","John Cho","Betty Gilpin","Lin Shaye","Jacki Weaver"]','["Horror","Supernatural"]','The_Grudge_(2020_film)','The Grudge is a 2020 American psychological supernatural horror film written and directed by Nicolas Pesce. Originally announced as a reboot of the 2004 American remake and the original 2002 Japanese horror film Ju-On: The Grudge, the film ended up taking place before and during the events of the 2004 film and its two direct sequels, and is the fourth installment in the American The Grudge film series. The film stars Andrea Riseborough, Demián Bichir, John Cho, Betty Gilpin, Lin Shaye, and Jacki Weaver, and follows a police officer who investigates several murders that are seemingly connected to a single house.','https://upload.wikimedia.org/wikipedia/en/3/34/The_Grudge_2020_Poster.jpeg',220,326),
@@ -1160,5 +1182,9 @@ an officer (Pataky) defends the facility with courage and resourcefulness.','htt
 ('Rebel Moon',2023,'["Sofia Boutella","Charlie Hunnam","Ray Fisher","Djimon Hounsou","Jena Malone","Corey Stoll","Ed Skrein","Cleopatra Coleman","Fra Fee","Cary Elwes","Anthony Hopkins"]','["Science Fiction"]','Rebel_Moon','Rebel Moon is an upcoming American epic space opera film directed by Zack Snyder from a screenplay he co-wrote with Shay Hatten and Kurt Johnstad, based on a story he also created with Johnstad. Produced by The Stone Quarry and Grand Electric, and distributed by Netflix. The film features an ensemble cast that includes Sofia Boutella, Charlie Hunnam, Ray Fisher, Djimon Hounsou, Jena Malone, Corey Stoll, Ed Skrein, Cleopatra Coleman, Fra Fee, Cary Elwes, and Anthony Hopkins.',NULL,NULL,NULL),
 ('Migration',2023,'[]','[]','Migration_(2023_film)','This is a list of productions produced by Illumination, an American film and animation studio based in Santa Monica, California, United States. This includes feature films, television specials, shorts, and digital series. As of 2023, Illumination has released 13 feature films, which were all distributed by Universal Pictures, with their first being Despicable Me on July 9, 2010, and their latest being The Super Mario Bros. Movie on April 5, 2023.',NULL,NULL,NULL),
 ('The Color Purple',2023,'["Fantasia Barrino","Colman Domingo","Corey Hawkins","Danielle Brooks","H.E.R.","Halle Bailey","Ciara","Aunjanue Ellis","Deon Cole","Elizabeth Marvel","Jon Batiste","Louis Gossett Jr.","David Alan Grier","Taraji P. Henson"]','["Drama","Musical","Historical"]','The_Color_Purple_(2023_film)','The Color Purple is an upcoming American musical coming-of-age period drama film directed by Blitz Bazawule and adapted for the screen by Marcus Gardley from the 2005 stage musical of the same name, which is in turn based on Alice Walker''s 1982 Pulitzer Prize-winning novel of the same name. It is the second film adaptation of the novel, following Steven Spielberg''s 1985 film adaptation. Spielberg and Quincy Jones return to produce this version, along with the stage musical''s producers Scott Sanders and Oprah Winfrey, the latter of whom also starred in the 1985 film as Sofia.',NULL,NULL,NULL);
+
+
+
+
 
 ```

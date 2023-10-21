@@ -1,3 +1,25 @@
+
+/* CREATE TABLE */
+CREATE TABLE movie (
+    id int primary key auto_increment,
+    title VARCHAR(255),
+    year DOUBLE,
+    cast VARCHAR(1000),
+    genres VARCHAR(255),
+    href VARCHAR(255),
+    extract VARCHAR(4000),
+    thumbnail VARCHAR(255),
+    thumbnail_width VARCHAR(255),
+    thumbnail_height VARCHAR(255)
+);
+
+drop table movie;
+
+desc movie;
+
+
+
+
 INSERT INTO movie (title, year, cast, genres, href, extract, thumbnail, thumbnail_width, thumbnail_height) VALUES
 ('The Grudge',2020,'["Andrea Riseborough","Demián Bichir","John Cho","Betty Gilpin","Lin Shaye","Jacki Weaver"]','["Horror","Supernatural"]','The_Grudge_(2020_film)','The Grudge is a 2020 American psychological supernatural horror film written and directed by Nicolas Pesce. Originally announced as a reboot of the 2004 American remake and the original 2002 Japanese horror film Ju-On: The Grudge, the film ended up taking place before and during the events of the 2004 film and its two direct sequels, and is the fourth installment in the American The Grudge film series. The film stars Andrea Riseborough, Demián Bichir, John Cho, Betty Gilpin, Lin Shaye, and Jacki Weaver, and follows a police officer who investigates several murders that are seemingly connected to a single house.','https://upload.wikimedia.org/wikipedia/en/3/34/The_Grudge_2020_Poster.jpeg',220,326),
 ('Underwater',2020,'["Kristen Stewart","Vincent Cassel","Jessica Henwick","John Gallagher Jr.","Mamoudou Athie","T.J. Miller"]','["Action","Horror","Science Fiction"]','Underwater_(film)','Underwater is a 2020 American science fiction action horror film directed by William Eubank. The film stars Kristen Stewart, Vincent Cassel, Jessica Henwick, John Gallagher Jr., Mamoudou Athie, and T.J. Miller.','https://upload.wikimedia.org/wikipedia/en/4/4a/Underwater_poster.jpeg',250,398),
@@ -750,7 +772,7 @@ Downton Abbey: A New Era was released in the United Kingdom on 29 April 2022 by 
 ('Hollywood Stargirl',2022,'["Elijah Richardson","Grace VanderWaal","Tyrel Jackson Williams","Judy Greer","Judd Hirsch","Uma Thurman"]','["Drama","Teen","Romance"]','Hollywood_Stargirl','Hollywood Stargirl is a 2022 American teen romantic drama film directed by Julia Hart from a screenplay that she co-wrote with Jordan Horowitz. The film is a sequel to the 2020 film Stargirl, which was in turn based on Jerry Spinelli''s 2000 novel of the same name; it is not an adaptation of the novel''s sequel Love, Stargirl.','https://upload.wikimedia.org/wikipedia/en/b/be/Hollywood_Stargirl.jpg',259,384),
 ('Crimes of the Future',2022,'["Viggo Mortensen","Léa Seydoux","Kristen Stewart","Scott Speedman"]','["Drama","Horror","Science Fiction"]','Crimes_of_the_Future_(2022_film)','Crimes of the Future is a 2022 science fiction body horror drama film written and directed by David Cronenberg. The film stars Viggo Mortensen, Léa Seydoux and Kristen Stewart. It follows a performance artist duo who perform surgery for audiences in a future where human evolution has accelerated for much of the population. Although the film shares its title with Cronenberg''s 1970 film of the same name, it is not a remake as the story and concept are unrelated, and there is no connection between the two films whatsoever. The film marked Cronenberg''s return to the science fiction and horror genres for the first time since Existenz (1999).','https://upload.wikimedia.org/wikipedia/en/d/d4/Crimes_of_the_Future_%282022_film%29.jpg',259,384),
 ('Benediction',2022,'["Jack Lowden","Peter Capaldi","Simon Russell Beale","Jeremy Irvine","Kate Phillips","Gemma Jones","Ben Daniels"]','["Drama","Biography","Romance"]','Benediction_(film)','Benediction is a 2021 biographical romantic drama film written and directed by Terence Davies. It stars Jack Lowden and Peter Capaldi as the war poet Siegfried Sassoon, along with Simon Russell Beale, Jeremy Irvine, Calam Lynch, Kate Phillips, Gemma Jones, and Ben Daniels. It was released in United Kingdom on 20 May 2022 by Vertigo Releasing and United States on 3 June 2022 by Roadside Attractions.','https://upload.wikimedia.org/wikipedia/en/5/5c/Benediction_%28film%29.jpg',259,385),
-('Interceptor',2022,'["Elsa Pataky","Luke Bracey"]','["Action","Drama"]','Interceptor_(film)','Interceptor is a 2022 action drama film directed by Matthew Reilly from a screenplay that he co-wrote with Stuart Beattie. The film stars Elsa Pataky and Luke Bracey. It is about terrorists who want to launch a nuclear attack on the United States with stolen missiles. When the terrorists attack a remote offshore missile interceptor platform that could stop their missiles, 
+('Interceptor',2022,'["Elsa Pataky","Luke Bracey"]','["Action","Drama"]','Interceptor_(film)','Interceptor is a 2022 action drama film directed by Matthew Reilly from a screenplay that he co-wrote with Stuart Beattie. The film stars Elsa Pataky and Luke Bracey. It is about terrorists who want to launch a nuclear attack on the United States with stolen missiles. When the terrorists attack a remote offshore missile interceptor platform that could stop their missiles,
 an officer (Pataky) defends the facility with courage and resourcefulness.','https://upload.wikimedia.org/wikipedia/en/3/31/Interceptor_%28film%29.jpg',260,385),
 ('Fire Island',2022,'["Joel Kim Booster","Bowen Yang","Conrad Ricamora","James Scully","Margaret Cho"]','["Comedy","Romance"]','Fire_Island_(film)','Fire Island is a 2022 American romantic comedy film directed by Andrew Ahn, and written by and starring Joel Kim Booster. The film co-stars Bowen Yang, Conrad Ricamora, James Scully, and Margaret Cho. Inspired by Jane Austen''s Pride and Prejudice, the story follows a group of gay friends who go on vacation to Fire Island, only for things to become complicated by classism and romance.','https://upload.wikimedia.org/wikipedia/en/0/05/Fire_Island_Movie_Poster.jpeg',259,384),
 ('Watcher',2022,'["Maika Monroe","Karl Glusman","Burn Gorman"]','["Thriller"]','Watcher_(film)','Watcher is a 2022 psychological thriller film written and directed by Chloe Okuno in her feature film directorial and screenwriting debut, based on an original screenplay by Zack Ford. The film stars Maika Monroe, Karl Glusman, and Burn Gorman.','https://upload.wikimedia.org/wikipedia/en/5/52/Watcher_poster.jpeg',259,384),
