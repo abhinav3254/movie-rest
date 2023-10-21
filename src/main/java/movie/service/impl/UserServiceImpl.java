@@ -61,8 +61,15 @@ public class UserServiceImpl implements UserService {
             if (Objects.isNull(user)) {
                 return new ResponseEntity<>("user not found",HttpStatus.NOT_FOUND);
             } if (user.getStatus().equalsIgnoreCase("true")) {
-                String token = jwtUtils.generateToken(user.getUsername(),user.getRole());
-                return new ResponseEntity<>(token,HttpStatus.OK);
+
+                if (user.getPassword().equals(logInDto.getPassword())) {
+                    String token = jwtUtils.generateToken(user.getUsername(),user.getRole());
+                    return new ResponseEntity<>(token,HttpStatus.OK);
+                } else {
+                    return new ResponseEntity<>("invalid password",HttpStatus.BAD_REQUEST);
+                }
+
+
             } else {
                 return new ResponseEntity<>("blocked user",HttpStatus.UNAVAILABLE_FOR_LEGAL_REASONS);
             }
