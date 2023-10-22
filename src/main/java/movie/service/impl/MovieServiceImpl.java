@@ -5,6 +5,7 @@ import movie.repository.MovieRepository;
 import movie.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -60,14 +61,11 @@ public class MovieServiceImpl implements MovieService {
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @Override
-    public ResponseEntity<List<Movie>> getByYear(Integer year) {
+    public ResponseEntity<Page<Movie>> getByYear(Integer year, int page, int size) {
         try {
-
-            List<Movie> movies = movieRepository.findByYear(year);
-
-            return new ResponseEntity<>(movies,HttpStatus.OK);
-
+            Pageable pageable = PageRequest.of(page, size);
+            Page<Movie> movies = movieRepository.findByYear(Double.parseDouble(year.toString()), pageable);
+            return new ResponseEntity<>(movies, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
         }

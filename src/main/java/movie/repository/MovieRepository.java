@@ -1,6 +1,8 @@
 package movie.repository;
 
 import movie.model.Movie;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -12,6 +14,5 @@ import java.util.List;
 @Repository
 public interface MovieRepository extends PagingAndSortingRepository<Movie,Integer> {
 
-    @Query(nativeQuery = true,value = "select * from movie where year=:year")
-    List<Movie> findByYear(@Param("year") Integer year);
+    Page<Movie> findByYear(@Param("year") Double year, Pageable pageable);
 }

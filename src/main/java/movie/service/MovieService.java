@@ -16,5 +16,5 @@ public interface MovieService {
 
     ResponseEntity<Page<Movie>> getMovies(Pageable pageable);
 
-    ResponseEntity<List<Movie>> getByYear(Integer year);
+    ResponseEntity<Page<Movie>> getByYear(Integer year, int page, int size);
 }

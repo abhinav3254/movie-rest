@@ -22,5 +22,9 @@ public interface MovieController {
     public ResponseEntity<Page<Movie>> getMovies(Pageable pageable);
 
     @GetMapping("/find/{year}")
-    public ResponseEntity<List<Movie>> getByYear(@PathVariable Integer year);
+    public ResponseEntity<Page<Movie>> getByYear(
+            @PathVariable Integer year,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size
+    );
 }

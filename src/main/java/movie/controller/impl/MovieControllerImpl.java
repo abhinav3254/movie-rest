@@ -34,7 +34,7 @@ public class MovieControllerImpl implements MovieController {
     }
 
     @Override
-    public ResponseEntity<List<Movie>> getByYear(Integer year) {
-        return movieService.getByYear(year);
+    public ResponseEntity<Page<Movie>> getByYear(Integer year, int page, int size) {
+        return movieService.getByYear(year,page,size);
     }
 }
