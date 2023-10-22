@@ -41,6 +41,11 @@ public class MovieControllerImpl implements MovieController {
         return movieService.getByYear(year,page,size);
     }
 
+    @Override
+    public ResponseEntity<Page<Movie>> getByGenres(String genres, int page, int size) {
+        return movieService.getByGenres(genres,page,size);
+    }
+
     @ExceptionHandler(ClientAbortException.class)
     public ResponseEntity<String> handleClientAbortException(ClientAbortException ex) {
         // Handle the exception and return an error response

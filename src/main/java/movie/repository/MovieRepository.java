@@ -15,4 +15,10 @@ import java.util.List;
 public interface MovieRepository extends PagingAndSortingRepository<Movie,Integer> {
 
     Page<Movie> findByYear(@Param("year") Double year, Pageable pageable);
+
+//    @Query(value = "select * from movie where genres like '%:genres%'", nativeQuery = true)
+//    Page<Movie> findByGenres(@Param("genres") String genres,Pageable pageable);
+
+    @Query(value = "SELECT * FROM movie WHERE genres LIKE CONCAT('%', :genres, '%')", nativeQuery = true)
+    Page<Movie> findByGenres(@Param("genres") String genres, Pageable pageable);
 }
