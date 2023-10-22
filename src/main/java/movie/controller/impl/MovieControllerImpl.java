@@ -4,6 +4,8 @@ import movie.controller.MovieController;
 import movie.service.MovieService;
 import movie.model.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,8 +29,8 @@ public class MovieControllerImpl implements MovieController {
     }
 
     @Override
-    public ResponseEntity<List<Movie>> getMovies() {
-        return movieService.getMovies();
+    public ResponseEntity<Page<Movie>> getMovies(Pageable pageable) {
+        return movieService.getMovies(pageable);
     }
 
     @Override

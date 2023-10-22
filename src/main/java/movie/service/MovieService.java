@@ -2,6 +2,8 @@ package movie.service;
 
 
 import movie.model.Movie;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -12,7 +14,7 @@ public interface MovieService {
 
     ResponseEntity<String> addMovie(Movie movie);
 
-    ResponseEntity<List<Movie>> getMovies();
+    ResponseEntity<Page<Movie>> getMovies(Pageable pageable);
 
     ResponseEntity<List<Movie>> getByYear(Integer year);
 }

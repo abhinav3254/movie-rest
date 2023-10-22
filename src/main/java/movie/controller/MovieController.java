@@ -2,6 +2,8 @@ package movie.controller;
 
 
 import movie.model.Movie;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +19,7 @@ public interface MovieController {
     public ResponseEntity<String> addMovie(@RequestBody Movie movie);
 
     @GetMapping("/")
-    public ResponseEntity<List<Movie>> getMovies();
+    public ResponseEntity<Page<Movie>> getMovies(Pageable pageable);
 
     @GetMapping("/find/{year}")
     public ResponseEntity<List<Movie>> getByYear(@PathVariable Integer year);

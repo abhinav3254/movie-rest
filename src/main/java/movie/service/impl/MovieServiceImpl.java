@@ -4,6 +4,8 @@ import movie.model.Movie;
 import movie.repository.MovieRepository;
 import movie.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -44,17 +46,14 @@ public class MovieServiceImpl implements MovieService {
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @Override
-    public ResponseEntity<List<Movie>> getMovies() {
+    public ResponseEntity<Page<Movie>> getMovies(Pageable pageable) {
         try {
+            // Simulate a delay of 2 seconds (optional)
+            // Thread.sleep(2000);
 
-//            wait for few seconds then only data will load
-//            Thread.sleep(2000);
+            Page<Movie> movies = movieRepository.findAll(pageable);
 
-            List<Movie> movies = movieRepository.findAll();
-
-            return new ResponseEntity<>(movies,HttpStatus.OK);
-
+            return new ResponseEntity<>(movies, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
         }
