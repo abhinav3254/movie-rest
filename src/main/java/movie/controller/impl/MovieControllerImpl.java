@@ -3,10 +3,13 @@ package movie.controller.impl;
 import movie.controller.MovieController;
 import movie.service.MovieService;
 import movie.model.Movie;
+import org.apache.catalina.connector.ClientAbortException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -37,4 +40,12 @@ public class MovieControllerImpl implements MovieController {
     public ResponseEntity<Page<Movie>> getByYear(Integer year, int page, int size) {
         return movieService.getByYear(year,page,size);
     }
+
+    @ExceptionHandler(ClientAbortException.class)
+    public ResponseEntity<String> handleClientAbortException(ClientAbortException ex) {
+        // Handle the exception and return an error response
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("An error occurred on the server.");
+    }
+
 }
