@@ -76,7 +76,6 @@ public class MovieServiceImpl implements MovieService {
     public ResponseEntity<Page<Movie>> getByGenres(String genres, int page, int size) {
         try {
             Pageable pageable = PageRequest.of(page, size);
-            System.out.println("--------->"+genres);
             Page<Movie> movies = movieRepository.findByGenres(genres, pageable);
             return new ResponseEntity<>(movies, HttpStatus.OK);
         } catch (Exception e) {
