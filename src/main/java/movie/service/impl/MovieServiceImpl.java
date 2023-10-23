@@ -84,4 +84,16 @@ public class MovieServiceImpl implements MovieService {
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    @Override
+    public ResponseEntity<Page<Movie>> getByTitle(String title, int page, int size) {
+        try {
+            Pageable pageable = PageRequest.of(page, size);
+            Page<Movie> movies = movieRepository.findByTitle(title, pageable);
+            return new ResponseEntity<>(movies, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
 }

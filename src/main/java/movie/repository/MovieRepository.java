@@ -21,4 +21,7 @@ public interface MovieRepository extends PagingAndSortingRepository<Movie,Intege
 
     @Query(value = "SELECT * FROM movie WHERE genres LIKE CONCAT('%', :genres, '%')", nativeQuery = true)
     Page<Movie> findByGenres(@Param("genres") String genres, Pageable pageable);
+
+    @Query(value = "select * from movie where title like CONCAT('%', :title, '%')",nativeQuery = true)
+    Page<Movie> findByTitle(String title, Pageable pageable);
 }

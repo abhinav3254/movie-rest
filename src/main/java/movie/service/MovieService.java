@@ -19,4 +19,6 @@ public interface MovieService {
     ResponseEntity<Page<Movie>> getByYear(Integer year, int page, int size);
 
     ResponseEntity<Page<Movie>> getByGenres(String genres, int page, int size);
+
+    ResponseEntity<Page<Movie>> getByTitle(String title, int page, int size);
 }

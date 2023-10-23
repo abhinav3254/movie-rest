@@ -34,4 +34,12 @@ public interface MovieController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "20") int size
     );
+
+    @GetMapping("/title/{title}")
+    public ResponseEntity<Page<Movie>> getByTitle(
+            @PathVariable String title,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size
+    );
+
 }
