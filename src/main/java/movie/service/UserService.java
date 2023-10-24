@@ -1,5 +1,6 @@
 package movie.service;
 
+import movie.dto.ChangePasswordDTO;
 import movie.dto.LogInDto;
 import movie.dto.ProfileDTO;
 import movie.dto.UpdateProfileDTO;
@@ -14,4 +15,6 @@ public interface UserService {
     ResponseEntity<ProfileDTO> profile();
 
     ResponseEntity<String> updateProfile(UpdateProfileDTO updateProfileDTO);
+
+    ResponseEntity<String> changePassword(ChangePasswordDTO changePasswordDTO);
 }

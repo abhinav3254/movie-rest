@@ -1,6 +1,7 @@
 package movie.controller;
 
 
+import movie.dto.ChangePasswordDTO;
 import movie.dto.LogInDto;
 import movie.dto.ProfileDTO;
 import movie.dto.UpdateProfileDTO;
@@ -23,5 +24,8 @@ public interface UserController {
 
     @PostMapping("/update")
     public ResponseEntity<String> updateProfile(@RequestBody(required = true)UpdateProfileDTO updateProfileDTO);
+
+    @PostMapping("/changePassword")
+    public ResponseEntity<String> changePassword(@RequestBody(required = true) ChangePasswordDTO changePasswordDTO);
 
 }

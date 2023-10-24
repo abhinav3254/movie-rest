@@ -1,5 +1,6 @@
 package movie.service.impl;
 
+import movie.dto.ChangePasswordDTO;
 import movie.dto.LogInDto;
 import movie.dto.ProfileDTO;
 import movie.dto.UpdateProfileDTO;
@@ -134,6 +135,30 @@ public class UserServiceImpl implements UserService {
                 userRepository.save(user);
 
                 return new ResponseEntity<>("profile updated",HttpStatus.OK);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<String> changePassword(ChangePasswordDTO changePasswordDTO) {
+        try {
+
+            User user = userRepository.getUserByUserName(jwtFilter.getCurrentUser());
+
+            if (Objects.isNull(user)) {
+                return new ResponseEntity<>("user not found",HttpStatus.NOT_FOUND);
+            } else {
+                if (user.getPassword().equals(changePasswordDTO.getOldPassword())) {
+                    user.setPassword(changePasswordDTO.getNewPassword());
+                    userRepository.save(user);
+                    return new ResponseEntity<>("password updated",HttpStatus.OK);
+                } else {
+                    return new ResponseEntity<>("password mismatch",HttpStatus.BAD_REQUEST);
+                }
             }
 
         } catch (Exception e) {
