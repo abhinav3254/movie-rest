@@ -2,6 +2,7 @@ package movie.service.impl;
 
 import movie.dto.LogInDto;
 import movie.dto.ProfileDTO;
+import movie.dto.UpdateProfileDTO;
 import movie.jwt.JwtFilter;
 import movie.jwt.JwtUtils;
 import movie.model.User;
@@ -102,6 +103,38 @@ public class UserServiceImpl implements UserService {
             profileDTO.setRegisterDate(user.getRegisterDate());
 
             return new ResponseEntity<>(profileDTO,HttpStatus.OK);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<String> updateProfile(UpdateProfileDTO updateProfileDTO) {
+        try {
+            User user = userRepository.getUserByUserName(jwtFilter.getCurrentUser());
+
+            if (Objects.isNull(user)) {
+                return new ResponseEntity<>("user not found",HttpStatus.NOT_FOUND);
+            } else {
+                if (!updateProfileDTO.getName().isEmpty()) {
+                    user.setName(updateProfileDTO.getName());
+                }
+                if (!updateProfileDTO.getEmail().isEmpty()) {
+                    user.setEmail(updateProfileDTO.getEmail());
+                }
+                if (!updateProfileDTO.getPhone().isEmpty()) {
+                    user.setPhone(updateProfileDTO.getPhone());
+                }
+                if(!updateProfileDTO.getGender().isEmpty()) {
+                    user.setGender(updateProfileDTO.getGender());
+                }
+
+                userRepository.save(user);
+
+                return new ResponseEntity<>("profile updated",HttpStatus.OK);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();

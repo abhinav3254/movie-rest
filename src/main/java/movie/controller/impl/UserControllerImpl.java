@@ -3,6 +3,7 @@ package movie.controller.impl;
 import movie.controller.UserController;
 import movie.dto.LogInDto;
 import movie.dto.ProfileDTO;
+import movie.dto.UpdateProfileDTO;
 import movie.model.User;
 import movie.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +48,10 @@ public class UserControllerImpl implements UserController {
     @Override
     public ResponseEntity<ProfileDTO> profile() {
         return userService.profile();
+    }
+
+    @Override
+    public ResponseEntity<String> updateProfile(UpdateProfileDTO updateProfileDTO) {
+        return userService.updateProfile(updateProfileDTO);
     }
 }
