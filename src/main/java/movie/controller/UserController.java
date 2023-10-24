@@ -8,6 +8,7 @@ import movie.model.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 @RequestMapping("user")
 public interface UserController {
 
@@ -20,7 +21,7 @@ public interface UserController {
     @GetMapping("/profile")
     public ResponseEntity<ProfileDTO> profile();
 
-    @PutMapping("/update")
+    @PostMapping("/update")
     public ResponseEntity<String> updateProfile(@RequestBody(required = true)UpdateProfileDTO updateProfileDTO);
 
 }

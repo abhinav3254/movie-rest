@@ -118,16 +118,16 @@ public class UserServiceImpl implements UserService {
             if (Objects.isNull(user)) {
                 return new ResponseEntity<>("user not found",HttpStatus.NOT_FOUND);
             } else {
-                if (!updateProfileDTO.getName().isEmpty()) {
+                if (updateProfileDTO.getName() != null && !updateProfileDTO.getName().isEmpty()) {
                     user.setName(updateProfileDTO.getName());
                 }
-                if (!updateProfileDTO.getEmail().isEmpty()) {
+                if (updateProfileDTO.getEmail() != null && !updateProfileDTO.getEmail().isEmpty()) {
                     user.setEmail(updateProfileDTO.getEmail());
                 }
-                if (!updateProfileDTO.getPhone().isEmpty()) {
+                if (updateProfileDTO.getPhone() != null && !updateProfileDTO.getPhone().isEmpty()) {
                     user.setPhone(updateProfileDTO.getPhone());
                 }
-                if(!updateProfileDTO.getGender().isEmpty()) {
+                if (updateProfileDTO.getGender() != null && !updateProfileDTO.getGender().isEmpty()) {
                     user.setGender(updateProfileDTO.getGender());
                 }
 
