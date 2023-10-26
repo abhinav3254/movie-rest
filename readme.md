@@ -1,3 +1,104 @@
+
+---
+
+# Movie Service API
+
+The Movie Service API is a RESTful web service that allows users to manage movies and user accounts. This document provides an overview of the available endpoints and their functionality.
+
+## Endpoints
+
+### Movie Endpoints
+
+#### Add Movies
+
+- **Endpoint:** POST `/movie/add/movies`
+- **Description:** Add a list of movies to the system.
+- **Request Body:** List of movie objects.
+- **Response:** A message indicating the status of the addition.
+
+#### Add Movie
+
+- **Endpoint:** POST `/movie/add`
+- **Description:** Add a single movie to the system.
+- **Request Body:** Movie object.
+- **Response:** A message indicating the status of the addition.
+
+#### Get Movies
+
+- **Endpoint:** GET `/movie/`
+- **Description:** Retrieve a paginated list of movies.
+- **Request Parameters:** Page number and page size.
+- **Response:** A Page of movie objects.
+
+#### Get Movies by Year
+
+- **Endpoint:** GET `/movie/find/{year}`
+- **Description:** Retrieve movies by release year in a paginated manner.
+- **Path Variable:** Year for filtering.
+- **Request Parameters:** Page number and page size.
+- **Response:** A Page of movie objects filtered by release year.
+
+#### Get Movies by Genres
+
+- **Endpoint:** GET `/movie/genres/{genres}`
+- **Description:** Retrieve movies by genres in a paginated manner.
+- **Path Variable:** Genres for filtering.
+- **Request Parameters:** Page number and page size.
+- **Response:** A Page of movie objects filtered by genres.
+
+#### Get Movies by Title
+
+- **Endpoint:** GET `/movie/title/{title}`
+- **Description:** Retrieve movies by title in a paginated manner.
+- **Path Variable:** Title for filtering.
+- **Request Parameters:** Page number and page size.
+- **Response:** A Page of movie objects filtered by title.
+
+### User Endpoints
+
+#### Register User
+
+- **Endpoint:** POST `/user/signup`
+- **Description:** Register a new user.
+- **Request Body:** User information for registration.
+- **Response:** A message indicating the status of the registration.
+
+#### Log In User
+
+- **Endpoint:** POST `/user/login`
+- **Description:** Log in an existing user.
+- **Request Body:** Login credentials.
+- **Response:** A token or a message indicating the login status.
+
+#### Get User Profile
+
+- **Endpoint:** GET `/user/profile`
+- **Description:** Retrieve the user's profile information.
+- **Response:** A ProfileDTO with the user's profile data.
+
+#### Update User Profile
+
+- **Endpoint:** POST `/user/update`
+- **Description:** Update the user's profile information.
+- **Request Body:** Updated profile information.
+- **Response:** A message indicating the update status.
+
+#### Change User Password
+
+- **Endpoint:** POST `/user/changePassword`
+- **Description:** Change the user's password.
+- **Request Body:** Old and new passwords.
+- **Response:** A message indicating the password change status.
+
+## Usage
+
+To use the Movie Service API, send HTTP requests to the provided endpoints using your preferred client (e.g., Postman, curl, or a web application). Make sure to include the required request bodies and parameters as specified for each endpoint.
+
+---
+
+
+
+
 use this
 
 ```
