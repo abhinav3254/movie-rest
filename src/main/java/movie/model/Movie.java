@@ -91,6 +91,4 @@ public class Movie {
 
     @Column(length = 100)
     private String thumbnail_height;
-
-    // Constructors, getters, and setters
 }
