@@ -40,7 +40,7 @@ public class JwtFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        if (request.getServletPath().matches("/auth/login|/auth/signup")) {
+        if (request.getServletPath().matches("api/no-auth/v1/*")) {
             filterChain.doFilter(request, response);
         } else {
             try {
