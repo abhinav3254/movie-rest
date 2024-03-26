@@ -23,14 +23,26 @@ public class AuthService {
     @Autowired
     private JwtUtils jwtUtils;
 
+    /**
+     * This method will save the user details in the database
+     * @return ServiceResponse<String>
+     */
     public ServiceResponse<String> signup(User user) {
-        validateUser(user);
-        user.setRole("user");
-        user.setCreatedDate(new Date());
-        userRepository.save(user);
-        return new ServiceResponse<String>("user added");
+        // check if user exists by email or phone
+        Optional<User> userOptional = userRepository.findByEmailOrPhone(user.getEmail(),user.getPhone());
+        // if no user found with email or phone then let him signup
+        if (userOptional.isEmpty()) {
+            validateUser(user);
+            user.setRole("user");
+            user.setCreatedDate(new Date());
+            userRepository.save(user);
+            return new ServiceResponse<String>("user added");
+        } else throw new CustomException("user already exists with this email or phone",HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * this method will check whether user have entered anything null
+     */
     private void validateUser(User user) {
         if (user.getPassword().isEmpty()
         || user.getEmail().isEmpty() || user.getPhone().isEmpty()
@@ -38,6 +50,9 @@ public class AuthService {
             throw new CustomException("Field's can't be empty", HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * This method generates the token and let the user login
+     */
     public ServiceResponse<String> login(LoginDto dto) {
         Optional<User> userOptional = userRepository.findByEmailOrPhone(dto.getUsername(),dto.getUsername());
         if (userOptional.isPresent()) {
