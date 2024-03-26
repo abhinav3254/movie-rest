@@ -1,38 +1,26 @@
 package movie.model;
 
-
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
 @Data
+@Entity
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
+    private Long id;
     private String name;
     private String email;
-
     private String phone;
-    private String password;
-
-    private String gender;
-    private String status;
     private String role;
+    private String password;
+    private String gender;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dateOfBirth;
-
+    private Date createdDate;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date lastLogIn;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date registerDate;
-
-    private String username;
-
+    private Date lastLogin;
 }

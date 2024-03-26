@@ -35,19 +35,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
-    /**
-     * Define the password encoder used for authentication. Note that NoOpPasswordEncoder is used here,
-     * which is not recommended for production. You should use a more secure password encoder in a real application.
-     *
-     * @return PasswordEncoder instance.
-     */
+
     @Bean
     public PasswordEncoder passwordEncoder() { return NoOpPasswordEncoder.getInstance(); }
 
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
-        // TODO Auto-generated method stub
         return super.authenticationManagerBean();
     }
 
@@ -62,7 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 // Define authorization rules for endpoints
-                .antMatchers("/user/signup","/user/login").permitAll()
+                .antMatchers("/auth/signup","/auth/login").permitAll()
                 // Allow unauthenticated access to signup and login
                 .anyRequest()
                 // Require authentication for all other requests
@@ -82,14 +76,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.applyPermitDefaultValues(); // Apply default CORS configuration
-        configuration.addAllowedOrigin("http://localhost:4200"); // Allow requests from this origin
+        configuration.applyPermitDefaultValues();
+        configuration.addAllowedOrigin("http://localhost:4200");
         configuration.addAllowedMethod(HttpMethod.PUT);
         configuration.addAllowedMethod(HttpMethod.PATCH);
         configuration.addAllowedMethod(HttpMethod.GET);
         configuration.addAllowedMethod(HttpMethod.POST);
         configuration.addAllowedMethod(HttpMethod.DELETE);
-        // Add more allowed methods and headers as needed
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
