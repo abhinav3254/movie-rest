@@ -7,29 +7,31 @@ import javax.persistence.*;
 import java.util.List;
 
 @Data
-@Table(name = "movie")
 @Entity
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private String description;
+    private String title;
+    @Column(length = 1000)
     private String image;
-    private Double duration;
-    private String lang;
 
-    @JoinColumn(name = "review_id")
+    @Column(length = 2000)
+    private String extract;
+
     @OneToMany(fetch = FetchType.LAZY)
-    private List<Review> reviews;
+    List<Cast> casts;
 
-    @JoinColumn(name = "member_id")
     @OneToMany(fetch = FetchType.LAZY)
-    private List<Member> members;
+    List<Genre> genres;
 
-    @JoinColumn(name = "category_id")
+    private int releaseYear;
+
+    @Embedded
+    private List<String> languages;
+    private String screenTime;
+
     @OneToMany(fetch = FetchType.LAZY)
-    private List<Category> categories;
-
+    List<Rating> ratings;
 }

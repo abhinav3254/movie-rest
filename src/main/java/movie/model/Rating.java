@@ -7,14 +7,14 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "member")
-public class Member {
+public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String originalName;
-    private String movieName;
-    private String role;
-    private String image;
+    private Double rating;
+    private String comment;
+
+    @OneToOne
+    private User user;
 }
