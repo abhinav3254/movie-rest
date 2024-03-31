@@ -1,37 +1,40 @@
 package movie.model;
 
-
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
+
 
 @Data
 @Entity
+@Table(name = "movies")
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String title;
-    @Column(length = 1000)
-    private String image;
+    private String year;
+    private String rated;
+    private String released;
+    private String runtime;
+    private String genre;
+    private String director;
+    private String writer;
+    private String actors;
+    private String plot;
+    private String language;
+    private String country;
+    private String awards;
+    private String poster;
 
-    @Column(length = 2000)
-    private String extract;
+    private String metaScore;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    List<Cast> casts;
+    private String imdbRating;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    List<Genre> genres;
+    private String imdbVotes;
+    private String imdbId;
+    private String type;
+    private Integer totalSeasons;
 
-    private int releaseYear;
-
-    @Embedded
-    private List<String> languages;
-    private String screenTime;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    List<Rating> ratings;
+    private Boolean comingSoon;
 }
